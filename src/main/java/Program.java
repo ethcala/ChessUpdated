@@ -44,13 +44,13 @@ public class Program {
     public static int displayMainMenu(Scanner scanner) {
         System.out.println("Welcome to Chess!");
         int option = 0;
-        
+
         boolean complete = false;
         while(!complete) {
             System.out.println("Please select your mode.");
-    
+
             String[] options = new String[] {"1 - Regular Rules"};
-    
+
             for(int i = 0; i < options.length; i++) {
                 System.out.println(options[i]);
             }
