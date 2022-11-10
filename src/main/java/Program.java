@@ -12,6 +12,8 @@ public class Program {
         InputHandler handler = new InputHandler();
         Scanner scanner = new Scanner(System.in);
 
+        int gamemode = displayMainMenu(scanner);
+
         ChessGame game = new ChessGame();
         BoardDisplay.clearConsole();
         BoardDisplay.printBoard(game.getBoard());
@@ -37,5 +39,39 @@ public class Program {
         }
         scanner.close();
         System.out.println("Game has finished. Thanks for playing.");
+    }
+
+    public static int displayMainMenu(Scanner scanner) {
+        System.out.println("Welcome to Chess!");
+        int option = 0;
+        
+        boolean complete = false;
+        while(!complete) {
+            System.out.println("Please select your mode.");
+    
+            String[] options = new String[] {"1 - Regular Rules"};
+    
+            for(int i = 0; i < options.length; i++) {
+                System.out.println(options[i]);
+            }
+            System.out.println("0 - Exit");
+
+            String input = scanner.nextLine();
+            try {
+                option = Integer.parseInt(input);
+            } catch (Exception ex) {
+
+            }
+
+            if (option >= 0 && option <= options.length) {
+                complete = true;
+            }
+
+            if (option == 0) {
+                System.exit(0);
+            }
+        }
+
+        return option;
     }
 }
