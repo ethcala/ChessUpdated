@@ -1,11 +1,11 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-repositories { mavenCentral() }
+repositories { jcenter() }
 
 dependencies {
     compile 'junit:junit:4.12'
-    testImplementation 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
 }
 
 sourceSets {
@@ -17,7 +17,7 @@ sourceSets {
     }
 }
 jar {
-    archivesBaseName = 'ConsoleChess'
+    baseName = 'ConsoleChess'
     manifest {
         attributes(
             'Main-Class': 'Program')
