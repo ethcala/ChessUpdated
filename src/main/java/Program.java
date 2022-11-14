@@ -20,6 +20,7 @@ public class Program {
 
         switch(gamemode) {
             case 1: gmHandler.SetUpRegularGame(game.getBoard());
+            case 2: gmHandler.SetUp960Game(game.getBoard());
         }
 
         BoardDisplay.clearConsole();
@@ -57,7 +58,7 @@ public class Program {
         while(!complete) {
             System.out.println("Please select your mode.");
 
-            String[] options = new String[] {"1 - Regular Rules"};
+            String[] options = new String[] {"1 - Regular Rules", "2 - 960 Rules"};
 
             for(int i = 0; i < options.length; i++) {
                 System.out.println(options[i]);
