@@ -10,7 +10,6 @@ public class ChessBoard {
     public ChessBoard(){
         board = new Tile[8][8];
         initializeBoard();
-        fillBoard();
     }
 
     public Tile[][] getBoardArray(){
@@ -55,42 +54,5 @@ public class ChessBoard {
 
     public Tile getTileFromTuple(Tuple tuple){
         return board[tuple.Y()][tuple.X()];
-    }
-
-    /*
-    Initial filler of board
-     */
-    private void fillBoard(){
-        //pawns
-        for(int i = 0; i < 8; i++){
-        board[1][i].setPiece(new Pawn(ChessPiece.PieceColor.Black));
-        board[6][i].setPiece(new Pawn(ChessPiece.PieceColor.White));
-        }
-
-        //rooks
-        board[0][0].setPiece(new Rook(ChessPiece.PieceColor.Black));
-        board[0][7].setPiece(new Rook(ChessPiece.PieceColor.Black));
-        board[7][0].setPiece(new Rook(ChessPiece.PieceColor.White));
-        board[7][7].setPiece(new Rook(ChessPiece.PieceColor.White));
-
-        //knight
-        board[0][1].setPiece(new Knight(ChessPiece.PieceColor.Black));
-        board[0][6].setPiece(new Knight(ChessPiece.PieceColor.Black));
-        board[7][1].setPiece(new Knight(ChessPiece.PieceColor.White));
-        board[7][6].setPiece(new Knight(ChessPiece.PieceColor.White));
-
-        //bishop
-        board[0][2].setPiece(new Bishop(ChessPiece.PieceColor.Black));
-        board[0][5].setPiece(new Bishop(ChessPiece.PieceColor.Black));
-        board[7][2].setPiece(new Bishop(ChessPiece.PieceColor.White));
-        board[7][5].setPiece(new Bishop(ChessPiece.PieceColor.White));
-
-        //queens
-        board[0][3].setPiece(new Queen(ChessPiece.PieceColor.Black));
-        board[7][3].setPiece(new Queen(ChessPiece.PieceColor.White));
-
-        //kings
-        board[0][4].setPiece(new King(ChessPiece.PieceColor.Black));
-        board[7][4].setPiece(new King(ChessPiece.PieceColor.White));
     }
 }

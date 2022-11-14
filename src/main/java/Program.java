@@ -1,5 +1,6 @@
 import Chess.ChessGame;
 import Chess.Tuple;
+import Console.GamemodeHandler;
 import Console.InputHandler;
 import Console.BoardDisplay;
 
@@ -11,10 +12,16 @@ public class Program {
     public static void main(String args[]) throws Exception {
         InputHandler handler = new InputHandler();
         Scanner scanner = new Scanner(System.in);
+        GamemodeHandler gmHandler = new GamemodeHandler();
 
         int gamemode = displayMainMenu(scanner);
 
         ChessGame game = new ChessGame();
+
+        switch(gamemode) {
+            case 1: gmHandler.SetUpRegularGame(game.getBoard());
+        }
+
         BoardDisplay.clearConsole();
         BoardDisplay.printBoard(game.getBoard());
         while (!game.isFinished()) {
@@ -42,6 +49,7 @@ public class Program {
     }
 
     public static int displayMainMenu(Scanner scanner) {
+
         System.out.println("Welcome to Chess!");
         int option = 0;
 
