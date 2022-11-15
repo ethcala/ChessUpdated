@@ -53,6 +53,10 @@ public class ChessBoard {
     }
 
     public Tile getTileFromTuple(Tuple tuple){
-        return board[tuple.Y()][tuple.X()];
+        try {
+            return board[tuple.Y()][tuple.X()];
+        } catch (ArrayIndexOutOfBoundsException exc) {
+            return board[0][0];
+        }
     }
 }
